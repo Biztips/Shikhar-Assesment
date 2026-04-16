@@ -330,11 +330,22 @@ const QS = [
 
   // ── GROWTH (NEW) ──
   {
-    q:   "How are your sales trending compared to your industry?",
-    qhi: "आपकी बिक्री आपके उद्योग की तुलना में कैसी है?",
+    q:   "How are your sales growth compared to your industry?",
+    qhi: "आपकी बिक्री में वृद्धि आपके उद्योग की तुलना में कैसी है?",
     dim: "Growth",
-    opts:   ["Increasing — above industry average","Growing in line with industry average","Stagnant — no significant movement","Declining"],
-    optshi: ["बढ़ रही है — उद्योग औसत से अधिक","उद्योग औसत के बराबर बढ़ रही है","स्थिर — कोई खास बदलाव नहीं","घट रही है"]
+   opts: [
+  "Declining",
+  "Stagnant — no significant movement",
+  "Growing in line with industry average",
+  "Increasing — above industry average"
+],
+
+optshi: [
+  "घट रही है",
+  "स्थिर — कोई खास बदलाव नहीं",
+  "उद्योग औसत के बराबर बढ़ रही है",
+  "बढ़ रही है — उद्योग औसत से अधिक"
+]
   },
 
   // ── MARKET POSITION (NEW) ──
@@ -342,8 +353,19 @@ const QS = [
     q:   "Do you have a clear USP (Unique Selling Proposition) and differentiation in the market?",
     qhi: "क्या आपके पास बाज़ार में एक स्पष्ट USP और अलग पहचान है?",
     dim: "Market Position",
-    opts:   ["Yes — very strong, clear USP that customers recognise","Only price — we compete mainly on being cheaper","Our products/services are similar to others in the market","No differentiation — we blend in with the competition"],
-    optshi: ["हाँ — बहुत मजबूत, स्पष्ट USP जो ग्राहक पहचानते हैं","केवल कीमत — हम सस्ते होने पर निर्भर हैं","हमारे उत्पाद/सेवाएँ बाज़ार में दूसरों जैसी ही हैं","कोई अंतर नहीं — हम बाज़ार में भीड़ का हिस्सा हैं"]
+    opts: [
+  "No differentiation — we blend in with the competition",
+  "Our products/services are similar to others in the market",
+  "Only price — we compete mainly on being cheaper",
+  "Yes — very strong, clear USP that customers recognise"
+],
+
+optshi: [
+  "कोई अंतर नहीं — हम बाज़ार में भीड़ का हिस्सा हैं",
+  "हमारे उत्पाद/सेवाएँ बाज़ार में दूसरों जैसी ही हैं",
+  "केवल कीमत — हम सस्ते होने पर निर्भर हैं",
+  "हाँ — बहुत मजबूत, स्पष्ट USP जो ग्राहक पहचानते हैं"
+]
   },
 
   // ── CASH FLOW (NEW) ──
@@ -351,8 +373,19 @@ const QS = [
     q:   "How would you describe your payment collection from customers?",
     qhi: "ग्राहकों से भुगतान वसूली आप कैसे करते हैं?",
     dim: "Cash Flow",
-    opts:   ["Always on time — payments come in as expected","Some on time, some delayed","Payments are frequently late","No idea — I don't actively track collections"],
-    optshi: ["हमेशा समय पर — भुगतान अपेक्षानुसार आता है","कुछ समय पर, कुछ देरी से","भुगतान अक्सर देरी से आता है","कोई जानकारी नहीं — मैं सक्रिय रूप से ट्रैक नहीं करता"]
+    opts: [
+  "No idea — I don't actively track collections",
+  "Payments are frequently late",
+  "Some on time, some delayed",
+  "Always on time — payments come in as expected"
+],
+
+optshi: [
+  "कोई जानकारी नहीं — मैं सक्रिय रूप से ट्रैक नहीं करता",
+  "भुगतान अक्सर देरी से आता है",
+  "कुछ समय पर, कुछ देरी से",
+  "हमेशा समय पर — भुगतान अपेक्षानुसार आता है"
+]
   },
 
   // ── CUSTOMER RELATIONS ──
