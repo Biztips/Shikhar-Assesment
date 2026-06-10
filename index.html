@@ -477,7 +477,7 @@ function testSheetConnection() {
     return;
   }
   set('#FFF9EC','#E8C96A','#8B6A0A','<span>⏳</span> शीट कनेक्शन टेस्ट हो रहा है… / Testing sheet connection…');
-  fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'CONNECTION_TEST',timestamp:new Date().toISOString()})})
+  fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({event:'CONNECTION_TEST',timestamp:new Date().toISOString()})})
   .then(()=>set('#E8F5E8','#A8D5A8','#1E5C1E','<span>✅</span> <strong>Sheet connected</strong> — सभी डेटा Google Sheet में सेव होगा।'))
   .catch(()=>set('#FDF0E8','#E0A890','#8B3A0F','<span>⚠️</span> <strong>Sheet not reachable</strong> — Deploy → New Deployment → Web App → Anyone access.'));
 }
@@ -485,7 +485,13 @@ window.addEventListener('load', testSheetConnection);
 
 function sendToSheet(payload) {
   if (!SHEET_URL) return Promise.resolve(null);
-  return fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(e=>console.warn('Sheet:',e));
+  return fetch(SHEET_URL, {
+    method: 'POST',
+    headers: {'Content-Type': 'text/plain'},
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.json())
+  .catch(e => { console.warn('Sheet:', e); return null; });
 }
 
 function showScreen(id){
@@ -616,7 +622,18 @@ function buildResult(){
     top_gaps:gaps.map(g=>g.dim).join(', '),
     interests_selected:''
   };
-  sendToSheet(sheetPayload);
+  sendToSheet(sheetPayload).then(resp => {
+    if (resp && resp.pdf) {
+      savedPdfLink = resp.pdf;
+      const box = document.getElementById('pdfLinkBox');
+      const href = document.getElementById('pdfHref');
+      if (box && href) { href.href = savedPdfLink; box.style.display = 'flex'; }
+      const pre = document.getElementById('reportPre');
+      if (pre) pre.textContent = pre.textContent.replace('_Shikhar Peak', 'PDF: ' + savedPdfLink + '
+
+_Shikhar Peak');
+    }
+  });
 
   const area=document.getElementById('resultArea');
   area.innerHTML=`
