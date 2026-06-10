@@ -40,7 +40,6 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 .intro-h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,5vw,46px); font-weight:700; line-height:1.15; color:var(--navy); margin-bottom:6px; }
 .intro-h1 em { font-style:italic; color:var(--gold); }
 .intro-h1-hi { font-family:'DM Sans',sans-serif; font-size:clamp(15px,2.5vw,20px); font-weight:400; color:var(--muted); margin-bottom:16px; line-height:1.4; }
-/* CHANGED: was 14px / 12px — now both same size */
 .intro-sub-hi { font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:4px; max-width:520px; }
 .intro-sub-en { font-size:14px; color:#9A8A76; line-height:1.65; margin-bottom:32px; max-width:520px; }
 
@@ -54,7 +53,6 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 .gate-card { background:white; border:1px solid var(--border); border-top:4px solid var(--gold); padding:32px 28px; margin-bottom:20px; }
 .gate-h3-hi { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--navy); margin-bottom:2px; }
 .gate-h3-en { font-size:12px; color:var(--muted); margin-bottom:18px; }
-/* CHANGED: both 13px */
 .gate-desc-hi { font-size:13px; color:var(--muted); line-height:1.65; margin-bottom:4px; }
 .gate-desc-en { font-size:13px; color:#9A8A76; line-height:1.6; margin-bottom:24px; }
 .field-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
@@ -71,11 +69,14 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 .wa-note-en { font-size:10px; color:#9A8A76; }
 .btn-start { background:var(--gold); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:14px 36px; border:none; cursor:pointer; transition:all .2s; display:inline-flex; align-items:center; gap:10px; }
 .btn-start:hover { background:#D9A445; transform:translateY(-1px); box-shadow:0 6px 20px rgba(200,147,58,.25); }
+.btn-start:disabled { background:#E0D0B8; color:#AAA; cursor:not-allowed; transform:none; box-shadow:none; }
 .saving-msg { display:none; align-items:center; gap:8px; font-size:12px; color:var(--wa); margin-top:12px; }
 .saving-dot { width:8px; height:8px; border-radius:50%; background:var(--wa); animation:pulse 1s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 .trust-row { display:flex; gap:20px; flex-wrap:wrap; margin-top:24px; padding-top:20px; border-top:1px solid var(--border); }
 .trust-item { display:flex; align-items:center; gap:7px; font-size:11px; color:var(--muted); }
+
+.sheet-status-bar { display:none; padding:10px 14px; font-size:12px; border:1px solid; margin-bottom:14px; border-radius:2px; align-items:center; gap:8px; }
 
 /* ASSESSMENT */
 .assess-wrap { max-width:860px; margin:0 auto; padding:24px 24px 80px; }
@@ -91,12 +92,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 .q-meta { font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
 .q-dim { color:rgba(255,255,255,.3); font-weight:400; }
 .q-dim::before { content:'·'; margin-right:8px; }
-/* Hindi first — larger */
 .q-text-hi { font-family:'DM Sans',sans-serif; font-size:18px; font-weight:600; color:#F5EFE6; line-height:1.5; margin-bottom:8px; }
-/* CHANGED: English now same size as Hindi — was 14px italic */
 .q-text-en { font-family:'DM Sans',sans-serif; font-size:18px; font-weight:400; color:rgba(255,255,255,.55); line-height:1.5; }
 
-/* RATING SCALE */
 .scale-note { display:flex; align-items:center; gap:8px; background:var(--goldLt); border:1px solid var(--border); border-left:3px solid var(--gold); padding:10px 14px; margin-bottom:18px; }
 .scale-note-hi { font-size:13px; font-weight:600; color:var(--navy); }
 .scale-note-en { font-size:13px; color:var(--muted); margin-left:4px; }
@@ -114,7 +112,6 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 .scale-btn.sel-4 { background:#2A7A5A; border-color:#2A7A5A; color:white; transform:translateY(-2px); }
 .scale-btn.sel-5 { background:#1E5C1E; border-color:#1E5C1E; color:white; transform:translateY(-2px); }
 .scale-desc-row { display:flex; justify-content:space-between; gap:4px; margin-top:6px; }
-/* CHANGED: both scale label rows now 10px / 10px — was 10px / 8.5px */
 .scale-desc-hi { flex:1; text-align:center; font-size:10px; color:#666; line-height:1.35; padding:0 2px; font-weight:500; }
 .scale-desc-en { flex:1; text-align:center; font-size:10px; color:#AAA; line-height:1.3; padding:0 2px; margin-top:2px; }
 .scale-desc-hi:first-child,.scale-desc-en:first-child { text-align:left; }
@@ -150,10 +147,8 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 .gauge-labels { display:flex; justify-content:space-between; font-size:8px; color:rgba(255,255,255,.22); }
 
 .band-card { padding:22px 26px; border-left:5px solid; margin-bottom:18px; }
-/* CHANGED: both band headlines now 16px */
 .band-headline-hi { font-size:16px; font-weight:600; line-height:1.4; margin-bottom:4px; }
 .band-headline-en { font-size:16px; font-weight:400; opacity:.7; margin-bottom:10px; }
-/* CHANGED: both band descriptions now 13px */
 .band-desc-hi { font-size:13px; line-height:1.75; color:var(--muted); margin-bottom:4px; }
 .band-desc-en { font-size:13px; line-height:1.65; color:#9A8A76; }
 
@@ -188,9 +183,6 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 /* INTEREST CHECKBOXES */
 .interest-card { background:white; border:2px solid var(--gold); padding:28px 28px 24px; margin-bottom:18px; position:relative; }
 .interest-card::before { content:'STEP 1'; position:absolute; top:-12px; left:20px; background:var(--gold); color:var(--ink); font-size:9px; font-weight:700; letter-spacing:.2em; padding:3px 10px; }
-.interest-card h3-hi { display:block; font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--navy); margin-bottom:2px; }
-.interest-card h3-en { display:block; font-size:12px; color:var(--muted); margin-bottom:16px; }
-/* INTEREST DESC — bilingual paragraph block */
 .interest-desc { background:var(--warm); border-left:3px solid var(--gold); padding:14px 16px; margin-bottom:18px; }
 .interest-desc-hi { font-size:14px; font-weight:500; color:var(--navy); line-height:1.6; margin-bottom:4px; }
 .interest-desc-en { font-size:14px; font-weight:400; color:var(--muted); line-height:1.6; }
@@ -202,35 +194,36 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
 .check-item.checked .check-box { background:var(--navy); border-color:var(--navy); }
 .check-tick { display:none; color:white; font-size:13px; font-weight:700; line-height:1; }
 .check-item.checked .check-tick { display:block; }
-/* CHANGED: both check labels now 14px */
 .check-hi { font-size:14px; font-weight:600; color:var(--ink); margin-bottom:4px; }
 .check-en { font-size:14px; font-weight:400; color:var(--muted); line-height:1.5; }
 
-/* WA SEND */
+/* WA CONTACT CARD */
 .wa-action-card { background:var(--navy); padding:28px 32px; margin-bottom:18px; border-left:5px solid var(--wa); position:relative; }
 .wa-action-card::before { content:'STEP 2'; position:absolute; top:-12px; left:20px; background:var(--wa); color:white; font-size:9px; font-weight:700; letter-spacing:.2em; padding:3px 10px; }
 .wa-action-title-hi { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:white; margin-bottom:2px; }
 .wa-action-title-hi em { color:var(--gold); font-style:italic; }
 .wa-action-title-en { font-size:12px; color:rgba(255,255,255,.35); margin-bottom:14px; }
-/* CHANGED: both wa-action-desc now 13px */
-.wa-action-desc-hi { font-size:13px; color:rgba(255,255,255,.45); line-height:1.65; margin-bottom:4px; }
-.wa-action-desc-en { font-size:13px; color:rgba(255,255,255,.35); line-height:1.5; margin-bottom:18px; }
-.wa-prefilled { background:rgba(37,211,102,.08); border:1px solid rgba(37,211,102,.25); padding:12px 16px; color:#25D366; font-size:13px; font-weight:500; display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.wa-action-desc-hi { font-size:13px; color:rgba(255,255,255,.65); line-height:1.7; margin-bottom:4px; }
+.wa-action-desc-en { font-size:13px; color:rgba(255,255,255,.38); line-height:1.55; margin-bottom:20px; }
+
+/* Highlight box showing what they'll get */
+.wa-what-you-get { background:rgba(200,147,58,.10); border:1px solid rgba(200,147,58,.28); padding:14px 18px; margin-bottom:20px; }
+.wa-what-you-get-title { font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold2); margin-bottom:10px; }
+.wa-what-you-get ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.wa-what-you-get ul li { font-size:13px; color:rgba(255,255,255,.6); display:flex; gap:9px; line-height:1.45; }
+.wa-what-you-get ul li::before { content:'✦'; color:var(--gold); flex-shrink:0; font-size:10px; margin-top:2px; }
+
 .wa-btns { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-.btn-wa { background:var(--wa); color:white; font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600; letter-spacing:.06em; padding:12px 22px; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:all .2s; }
-.btn-wa:hover { background:#20BA5A; }
-.btn-wa-outline { background:transparent; color:var(--wa); font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600; padding:12px 20px; border:1px solid var(--wa); cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:all .2s; }
-.btn-wa-outline:hover { background:rgba(37,211,102,.08); }
+.btn-wa { background:var(--wa); color:white; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; letter-spacing:.04em; padding:13px 26px; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:9px; transition:all .2s; }
+.btn-wa:hover { background:#20BA5A; transform:translateY(-1px); box-shadow:0 6px 18px rgba(37,211,102,.3); }
 .btn-reset { background:none; color:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.1); font-family:'DM Sans',sans-serif; font-size:11px; padding:12px 16px; cursor:pointer; transition:all .2s; }
 .btn-reset:hover { color:rgba(255,255,255,.55); }
-.wa-confirm { display:none; margin-top:12px; background:rgba(37,211,102,.08); border:1px solid rgba(37,211,102,.25); padding:12px 16px; color:var(--wa); font-size:13px; font-weight:500; align-items:center; gap:8px; }
-.pdf-link-box { display:none; margin-top:10px; background:rgba(200,147,58,.08); border:1px solid rgba(200,147,58,.3); padding:12px 16px; color:var(--gold); font-size:12px; align-items:center; gap:10px; flex-wrap:wrap; }
-.pdf-link-box a { color:var(--gold2); text-decoration:underline; font-weight:600; word-break:break-all; }
+.wa-confirm { display:none; margin-top:14px; background:rgba(37,211,102,.08); border:1px solid rgba(37,211,102,.25); padding:12px 16px; color:var(--wa); font-size:13px; font-weight:500; align-items:center; gap:8px; border-radius:2px; }
 
-.report-box { background:white; border:1px solid var(--border); padding:24px; margin-bottom:18px; }
-.report-pre { background:#F8F5F0; border:1px solid var(--border); padding:18px; font-family:monospace; font-size:11px; line-height:1.8; color:#444; white-space:pre-wrap; word-break:break-word; max-height:300px; overflow-y:auto; margin-bottom:12px; }
-.btn-copy { background:white; color:var(--navy); font-family:'DM Sans',sans-serif; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:9px 20px; border:1px solid var(--border); cursor:pointer; transition:all .18s; }
-.btn-copy:hover { border-color:var(--navy); }
+/* Sheet save status */
+.status-inline { display:none; margin-bottom:12px; padding:10px 14px; border:1px solid; font-size:12px; align-items:center; gap:8px; border-radius:2px; }
+.status-inline.ok   { background:rgba(37,211,102,.08); border-color:rgba(37,211,102,.25); color:var(--wa); }
+.status-inline.busy { background:rgba(200,147,58,.08); border-color:rgba(200,147,58,.3); color:var(--gold); }
 
 @media(max-width:600px){
   .field-grid{grid-template-columns:1fr}
@@ -243,14 +236,17 @@ body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--in
   .stats-strip{flex-wrap:wrap}
   .stat-item{min-width:50%}
   .gate-card{padding:22px 18px}
+  .wa-action-card{padding:22px 18px}
 }
 </style>
 </head>
 <body>
 
 <script>
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzSFjU42lqLI3yEjW57rHTHiIkmKnl6VEMOQCefq6Auw5ANe46DKIOpsvu7suWQYxyS/exec';
+// ── CONFIG ────────────────────────────────────────────────────
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwyuUl77DM3tIYQITZQ6xguMawsZgBrJg6iSxNJGUI-zVUZhA6WOHyyDtnPmLlh3v_5/exec';
 const ADMIN_WA  = '919601603322';
+// ─────────────────────────────────────────────────────────────
 </script>
 
 <div class="topbar">
@@ -282,8 +278,10 @@ const ADMIN_WA  = '919601603322';
     <div class="gate-card">
       <div class="gate-h3-hi">रिपोर्ट कहाँ भेजें?</div>
       <div class="gate-h3-en">Where should we send your report?</div>
-      <p class="gate-desc-hi">नीचे अपनी जानकारी भरें। असेसमेंट पूरा होते ही पूरी रिपोर्ट आपके WhatsApp पर आ जाएगी।</p>
-      <p class="gate-desc-en">Enter your details below. Your personalised Business Bottleneck Report will be sent to your WhatsApp instantly.</p>
+      <p class="gate-desc-hi">नीचे अपनी जानकारी भरें। असेसमेंट पूरा होते ही Shikhar टीम आपसे WhatsApp पर संपर्क करेगी।</p>
+      <p class="gate-desc-en">Enter your details below. Once you complete the assessment, the Shikhar team will reach out on WhatsApp with your full report.</p>
+
+      <div class="sheet-status-bar" id="sheetStatusBar"></div>
 
       <div class="field-grid">
         <div>
@@ -317,16 +315,14 @@ const ADMIN_WA  = '919601603322';
         </div>
       </div>
 
-      <label class="field-lbl-hi">WhatsApp नंबर * <span style="font-weight:400;font-size:11px;color:var(--muted)">(रिपोर्ट यहाँ भेजी जाएगी / Report sent here)</span></label>
+      <label class="field-lbl-hi">WhatsApp नंबर * <span style="font-weight:400;font-size:11px;color:var(--muted)">(हम यहाँ संपर्क करेंगे / We will contact you here)</span></label>
       <div class="wa-gate-row" style="margin-top:5px">
         <div class="wa-gate-cc">🇮🇳 +91</div>
         <input class="wa-gate-in" id="fwa" type="tel" placeholder="98765 43210" maxlength="10">
       </div>
       <div class="wa-note-hi">🔒 आपका नंबर केवल रिपोर्ट भेजने के लिए उपयोग होगा। <span class="wa-note-en">Used only to send your report. Never shared.</span></div>
 
-      <div id="sheetStatus" style="display:none;padding:9px 13px;font-size:12px;border:1px solid;margin-bottom:14px;align-items:center;gap:7px;"></div>
-
-      <button class="btn-start" onclick="startAssessment()">
+      <button class="btn-start" id="btnStart" onclick="startAssessment()">
         असेसमेंट शुरू करें / Start Assessment
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
       </button>
@@ -464,22 +460,42 @@ let answers   = new Array(QS.length).fill(null);
 let owner     = {};
 let currentQ  = 0;
 let interests = { assessment_report:false, improvement_roadmap:false, consulting:false };
-let savedPdfLink = '';
+
+// ── Sheet connection test ──
+function setSheetBanner(state, msgHi, msgEn) {
+  const el = document.getElementById('sheetStatusBar');
+  const styles = {
+    testing: { bg:'#FFF9EC', bdr:'#E8C96A', col:'#8B6A0A', icon:'⏳' },
+    ok:      { bg:'#E8F5E8', bdr:'#A8D5A8', col:'#1E5C1E', icon:'✅' },
+    error:   { bg:'#FDF0E8', bdr:'#E0A890', col:'#8B3A0F', icon:'⚠️' }
+  };
+  const s = styles[state] || styles.testing;
+  el.style.cssText = `display:flex; background:${s.bg}; border:1px solid ${s.bdr}; color:${s.col}; padding:10px 14px; font-size:12px; align-items:center; gap:8px; border-radius:2px; margin-bottom:14px;`;
+  el.innerHTML = `<span>${s.icon}</span><span><strong>${msgHi}</strong> &nbsp;<span style="opacity:.65">${msgEn}</span></span>`;
+}
 
 function testSheetConnection() {
-  const el = document.getElementById('sheetStatus');
-  const set = (bg,bdr,col,html) => {
-    el.style.cssText=`display:flex;background:${bg};border:1px solid ${bdr};padding:9px 13px;font-size:12px;color:${col};align-items:center;gap:7px;margin-bottom:14px;`;
-    el.innerHTML=html;
-  };
-  if (!SHEET_URL || !SHEET_URL.includes('script.google.com/macros/s/') || !SHEET_URL.includes('/exec')) {
-    set('#FDF0E8','#E0A890','#8B3A0F','<span>⚠️</span> <strong>Invalid SHEET_URL</strong> — must end with <code>/exec</code>');
+  if (!SHEET_URL || !SHEET_URL.includes('/exec')) {
+    setSheetBanner('error', 'Sheet URL गलत है।', 'SHEET_URL must end with /exec — update it in the script.');
     return;
   }
-  set('#FFF9EC','#E8C96A','#8B6A0A','<span>⏳</span> शीट कनेक्शन टेस्ट हो रहा है… / Testing sheet connection…');
-  fetch(SHEET_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({event:'CONNECTION_TEST',timestamp:new Date().toISOString()})})
-  .then(()=>set('#E8F5E8','#A8D5A8','#1E5C1E','<span>✅</span> <strong>Sheet connected</strong> — सभी डेटा Google Sheet में सेव होगा।'))
-  .catch(()=>set('#FDF0E8','#E0A890','#8B3A0F','<span>⚠️</span> <strong>Sheet not reachable</strong> — Deploy → New Deployment → Web App → Anyone access.'));
+  setSheetBanner('testing', 'Sheet से जुड़ा जा रहा है…', 'Checking Google Sheet connection…');
+  fetch(SHEET_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify({ event: 'CONNECTION_TEST', timestamp: new Date().toISOString() })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data && data.status === 'ok') {
+      setSheetBanner('ok', 'Sheet कनेक्ट हो गई!', 'All responses will be saved to Google Sheet.');
+    } else {
+      setSheetBanner('error', 'Sheet से जवाब नहीं मिला।', 'Unexpected response — check Apps Script logs.');
+    }
+  })
+  .catch(() => {
+    setSheetBanner('error', 'Sheet से कनेक्ट नहीं हो पाया।', 'Deploy → Web App → Anyone access, then copy new /exec URL.');
+  });
 }
 window.addEventListener('load', testSheetConnection);
 
@@ -487,53 +503,73 @@ function sendToSheet(payload) {
   if (!SHEET_URL) return Promise.resolve(null);
   return fetch(SHEET_URL, {
     method: 'POST',
-    headers: {'Content-Type': 'text/plain'},
+    headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify(payload)
   })
   .then(r => r.json())
-  .catch(e => { console.warn('Sheet:', e); return null; });
+  .catch(e => { console.warn('Sheet error:', e); return null; });
 }
 
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('sc-'+id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+// ── Screen helpers ──
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('sc-' + id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-function updateProg(){
-  const done=answers.filter(a=>a!==null).length;
-  document.getElementById('progFill').style.width=(done/QS.length*100)+'%';
-  document.getElementById('progTxt').textContent=done+' / '+QS.length;
-  document.querySelectorAll('.dot').forEach((d,i)=>{
-    d.className='dot'+(answers[i]!==null?' done':'')+(i===currentQ?' active':'');
+function updateProg() {
+  const done = answers.filter(a => a !== null).length;
+  document.getElementById('progFill').style.width = (done / QS.length * 100) + '%';
+  document.getElementById('progTxt').textContent = done + ' / ' + QS.length;
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.className = 'dot' + (answers[i] !== null ? ' done' : '') + (i === currentQ ? ' active' : '');
   });
 }
-function barColor(s){
-  const p=s/5;
-  if(p<0.4)  return '#8B3A0F';
-  if(p<0.55) return '#C8933A';
-  if(p<0.75) return '#1E6B6B';
+function barColor(s) {
+  if (s < 2)  return '#8B3A0F';
+  if (s < 3)  return '#C8933A';
+  if (s < 4)  return '#1E6B6B';
   return '#1E5C1E';
 }
 
-function startAssessment(){
-  const name=document.getElementById('fname').value.trim();
-  const wa=document.getElementById('fwa').value.replace(/\D/g,'');
-  if(!name){alert('कृपया अपना नाम दर्ज करें। / Please enter your name.');return;}
-  if(wa.length!==10){alert('कृपया 10 अंकों का WhatsApp नंबर दर्ज करें। / Please enter a valid 10-digit WhatsApp number.');return;}
-  owner={
-    name, biz:document.getElementById('fbiz').value.trim()||'Not specified',
-    indus:document.getElementById('findus').value.trim()||'Not specified',
-    rev:document.getElementById('frev').value||'Not specified',
-    wa:'+91'+wa
+// ── Start assessment ──
+function startAssessment() {
+  const name = document.getElementById('fname').value.trim();
+  const wa   = document.getElementById('fwa').value.replace(/\D/g, '');
+  if (!name)            { alert('कृपया अपना नाम दर्ज करें। / Please enter your name.');                          return; }
+  if (wa.length !== 10) { alert('कृपया 10 अंकों का WhatsApp नंबर दर्ज करें। / Please enter a valid 10-digit WhatsApp number.'); return; }
+
+  owner = {
+    name,
+    biz:   document.getElementById('fbiz').value.trim()   || 'Not specified',
+    indus: document.getElementById('findus').value.trim() || 'Not specified',
+    rev:   document.getElementById('frev').value          || 'Not specified',
+    wa:    '+91' + wa
   };
-  document.getElementById('savingMsg').style.display='flex';
-  sendToSheet({event:'LEAD_STARTED',timestamp:new Date().toISOString(),name:owner.name,business:owner.biz,industry:owner.indus,turnover:owner.rev,whatsapp:owner.wa,score:'',result:'',completed:'No'});
-  setTimeout(()=>{buildQuestions();showScreen('assess');showQ(0);},600);
+
+  const btn = document.getElementById('btnStart');
+  btn.disabled = true;
+  document.getElementById('savingMsg').style.display = 'flex';
+
+  sendToSheet({
+    event: 'LEAD_STARTED', timestamp: new Date().toISOString(),
+    name: owner.name, business: owner.biz, industry: owner.indus,
+    turnover: owner.rev, whatsapp: owner.wa,
+    score: '', result: '', completed: 'No'
+  })
+  .finally(() => {
+    btn.disabled = false;
+    document.getElementById('savingMsg').style.display = 'none';
+    buildQuestions();
+    showScreen('assess');
+    showQ(0);
+  });
 }
 
-function buildQuestions(){
-  document.getElementById('dotRow').innerHTML=QS.map((_,i)=>`<div class="dot" id="dot${i}" onclick="jumpQ(${i})"></div>`).join('');
-  document.getElementById('qContainer').innerHTML=QS.map((q,i)=>`
+function buildQuestions() {
+  document.getElementById('dotRow').innerHTML = QS.map((_, i) =>
+    `<div class="dot" id="dot${i}" onclick="jumpQ(${i})"></div>`
+  ).join('');
+  document.getElementById('qContainer').innerHTML = QS.map((q, i) => `
     <div class="q-card" id="qc${i}">
       <div class="q-card-top" id="qcTop${i}">
         <div class="q-meta">सवाल ${i+1} / ${QS.length} <span class="q-dim">${q.dimhi} · ${q.dim}</span></div>
@@ -550,93 +586,125 @@ function buildQuestions(){
             <div class="scale-end-hi" style="color:var(--rust)">1 — बिल्कुल नहीं</div>
             <div class="scale-end-en">Not at all</div>
           </div>
-          <div class="scale-end-lbl right" style="text-align:right">
+          <div class="scale-end-lbl right">
             <div class="scale-end-hi" style="color:var(--grn)">5 — पूरी तरह</div>
             <div class="scale-end-en">Yes, completely</div>
           </div>
         </div>
         <div class="scale-btns" id="scaleBtns${i}">
-          ${[1,2,3,4,5].map(v=>`<button class="scale-btn" id="sb${i}_${v}" onclick="pick(${i},${v})">${v}</button>`).join('')}
+          ${[1,2,3,4,5].map(v => `<button class="scale-btn" id="sb${i}_${v}" onclick="pick(${i},${v})">${v}</button>`).join('')}
         </div>
         <div class="scale-labels-wrap">
-          <div class="scale-desc-row">${q.lhi.map(l=>`<div class="scale-desc-hi">${l}</div>`).join('')}</div>
-          <div class="scale-desc-row">${q.len.map(l=>`<div class="scale-desc-en">${l}</div>`).join('')}</div>
+          <div class="scale-desc-row">${q.lhi.map(l => `<div class="scale-desc-hi">${l}</div>`).join('')}</div>
+          <div class="scale-desc-row">${q.len.map(l => `<div class="scale-desc-en">${l}</div>`).join('')}</div>
         </div>
       </div>
       <div class="q-foot">
         <span class="q-of"><strong>${i+1}</strong> / ${QS.length}</span>
         <div style="display:flex;gap:8px;">
-          ${i>0?`<button class="btn-nav btn-ghost" onclick="showQ(${i-1})">← वापस</button>`:''}
-          ${i<QS.length-1
-            ?`<button class="btn-nav btn-primary" id="nxt${i}" onclick="advance(${i})" disabled>आगे →</button>`
-            :`<button class="btn-nav btn-primary" id="nxt${i}" onclick="buildResult()" disabled>मेरी रिपोर्ट देखें →</button>`}
+          ${i > 0 ? `<button class="btn-nav btn-ghost" onclick="showQ(${i-1})">← वापस</button>` : ''}
+          ${i < QS.length-1
+            ? `<button class="btn-nav btn-primary" id="nxt${i}" onclick="advance(${i})" disabled>आगे →</button>`
+            : `<button class="btn-nav btn-primary" id="nxt${i}" onclick="buildResult()" disabled>मेरी रिपोर्ट देखें →</button>`}
         </div>
       </div>
-    </div>`).join('');
+    </div>`
+  ).join('');
 }
 
-function showQ(i){
-  document.querySelectorAll('.q-card').forEach(c=>c.classList.remove('visible'));
-  document.getElementById('qc'+i).classList.add('visible');
-  currentQ=i;
-  if(answers[i]!==null){
-    for(let v=1;v<=5;v++){const b=document.getElementById(`sb${i}_${v}`);if(b)b.className='scale-btn'+(answers[i]===v?` sel-${v}`:'');}
-    document.getElementById(`nxt${i}`).disabled=false;
-    document.getElementById(`qcTop${i}`).className=`q-card-top rated-${answers[i]}`;
+function showQ(i) {
+  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('visible'));
+  document.getElementById('qc' + i).classList.add('visible');
+  currentQ = i;
+  if (answers[i] !== null) {
+    for (let v = 1; v <= 5; v++) {
+      const b = document.getElementById(`sb${i}_${v}`);
+      if (b) b.className = 'scale-btn' + (answers[i] === v ? ` sel-${v}` : '');
+    }
+    document.getElementById(`nxt${i}`).disabled = false;
+    document.getElementById(`qcTop${i}`).className = `q-card-top rated-${answers[i]}`;
   }
   updateProg();
 }
-function jumpQ(i){if(i>0&&answers[i-1]===null)return;showQ(i);}
-function pick(qi,val){
-  for(let v=1;v<=5;v++){const b=document.getElementById(`sb${qi}_${v}`);if(b)b.className='scale-btn'+(v===val?` sel-${v}`:'');}
-  answers[qi]=val;
-  document.getElementById(`nxt${qi}`).disabled=false;
-  document.getElementById(`qcTop${qi}`).className=`q-card-top rated-${val}`;
+function jumpQ(i) { if (i > 0 && answers[i-1] === null) return; showQ(i); }
+function pick(qi, val) {
+  for (let v = 1; v <= 5; v++) {
+    const b = document.getElementById(`sb${qi}_${v}`);
+    if (b) b.className = 'scale-btn' + (v === val ? ` sel-${v}` : '');
+  }
+  answers[qi] = val;
+  document.getElementById(`nxt${qi}`).disabled = false;
+  document.getElementById(`qcTop${qi}`).className = `q-card-top rated-${val}`;
   updateProg();
-  if(qi<QS.length-1)setTimeout(()=>advance(qi),380);
+  if (qi < QS.length - 1) setTimeout(() => advance(qi), 380);
 }
-function advance(i){if(answers[i]===null)return;showQ(i+1);}
+function advance(i) { if (answers[i] === null) return; showQ(i + 1); }
 
-function buildResult(){
-  const unanswered=answers.findIndex(a=>a===null);
-  if(unanswered!==-1){showQ(unanswered);alert(`कृपया सवाल ${unanswered+1} का जवाब दें। / Please answer question ${unanswered+1}.`);return;}
+// ── Build result ──
+function buildResult() {
+  const unanswered = answers.findIndex(a => a === null);
+  if (unanswered !== -1) {
+    showQ(unanswered);
+    alert(`कृपया सवाल ${unanswered+1} का जवाब दें। / Please answer question ${unanswered+1}.`);
+    return;
+  }
 
-  const total=answers.reduce((s,a)=>s+a,0);
-  const band=BANDS.find(b=>total>=b.min&&total<=b.max)||BANDS[0];
-  const pct=Math.round((total/MAX_SCORE)*100);
-  const today=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
-  const qScores=QS.map((q,i)=>({dimhi:q.dimhi,dim:q.dim,score:answers[i],pct:(answers[i]/5)*100}));
-  const str=[...qScores].sort((a,b)=>b.score-a.score).slice(0,3);
-  const gaps=[...qScores].filter(d=>d.score<=2).sort((a,b)=>a.score-b.score).slice(0,3);
+  const total   = answers.reduce((s, a) => s + a, 0);
+  const band    = BANDS.find(b => total >= b.min && total <= b.max) || BANDS[0];
+  const pct     = Math.round((total / MAX_SCORE) * 100);
+  const today   = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+  const qScores = QS.map((q, i) => ({ dimhi:q.dimhi, dim:q.dim, score:answers[i], pct:(answers[i]/5)*100 }));
+  const str     = [...qScores].sort((a, b) => b.score - a.score).slice(0, 3);
+  const gaps    = [...qScores].filter(d => d.score <= 2).sort((a, b) => a.score - b.score).slice(0, 3);
 
-  const sheetPayload={
-    event:'ASSESSMENT_COMPLETED',timestamp:new Date().toISOString(),
-    name:owner.name,business:owner.biz,industry:owner.indus,
-    turnover:owner.rev,whatsapp:owner.wa,
-    score:total+'/'+MAX_SCORE,result:band.label,completed:'Yes',
-    q1_strategy:answers[0],q2_systems:answers[1],q3_people:answers[2],
-    q4_discipline:answers[3],q5_finance:answers[4],q6_operations:answers[5],
-    q7_processes:answers[6],q8_leadership:answers[7],q9_profit:answers[8],
-    q10_growth:answers[9],
-    top_strengths:str.map(s=>s.dim).join(', '),
-    top_gaps:gaps.map(g=>g.dim).join(', '),
-    interests_selected:''
-  };
-  sendToSheet(sheetPayload).then(resp => {
-    if (resp && resp.pdf) {
-      savedPdfLink = resp.pdf;
-      const box = document.getElementById('pdfLinkBox');
-      const href = document.getElementById('pdfHref');
-      if (box && href) { href.href = savedPdfLink; box.style.display = 'flex'; }
-      const pre = document.getElementById('reportPre');
-      if (pre) pre.textContent = pre.textContent.replace('_Shikhar Peak', 'PDF: ' + savedPdfLink + '
+  const area = document.getElementById('resultArea');
+  area.innerHTML = buildResultHTML(total, band, pct, qScores, str, gaps, today);
+  showScreen('result');
+  updateProg();
 
-_Shikhar Peak');
-    }
+  // Animate score counter
+  let n = 0;
+  const t = setInterval(() => {
+    n = Math.min(n + 1, total);
+    document.getElementById('animScore').textContent = n;
+    if (n >= total) clearInterval(t);
+  }, 60);
+  setTimeout(() => document.getElementById('gaugeFill').style.width = pct + '%', 200);
+
+  // Save to sheet
+  const saveInd = document.getElementById('sheetSaveInd');
+  saveInd.style.display = 'flex';
+  sendToSheet({
+    event: 'ASSESSMENT_COMPLETED', timestamp: new Date().toISOString(),
+    name: owner.name, business: owner.biz, industry: owner.indus,
+    turnover: owner.rev, whatsapp: owner.wa,
+    score: total + '/' + MAX_SCORE, result: band.label, completed: 'Yes',
+    q1_strategy: answers[0], q2_systems: answers[1], q3_people: answers[2],
+    q4_discipline: answers[3], q5_finance: answers[4], q6_operations: answers[5],
+    q7_processes: answers[6], q8_leadership: answers[7], q9_profit: answers[8],
+    q10_growth: answers[9],
+    top_strengths: str.map(s => s.dim).join(', '),
+    top_gaps: gaps.map(g => g.dim).join(', '),
+    interests_selected: ''
+  })
+  .then(() => {
+    saveInd.innerHTML = '✅ डेटा Google Sheet में सेव हो गया। / Data saved to Google Sheet.';
+    saveInd.style.background = 'rgba(37,211,102,.08)';
+    saveInd.style.borderColor = 'rgba(37,211,102,.25)';
+    saveInd.style.color = 'var(--wa)';
+    setTimeout(() => saveInd.style.display = 'none', 5000);
+  })
+  .catch(() => {
+    saveInd.innerHTML = '⚠️ Sheet से कनेक्ट नहीं हो पाया।';
+    saveInd.style.background = '#FDF0E8';
+    saveInd.style.borderColor = '#E0A890';
+    saveInd.style.color = '#8B3A0F';
   });
+}
 
-  const area=document.getElementById('resultArea');
-  area.innerHTML=`
+// ── Build result HTML ──
+function buildResultHTML(total, band, pct, qScores, str, gaps, today) {
+  return `
     <div class="score-card">
       <div class="score-date">असेसमेंट पूरा हुआ · ${today}</div>
       <div class="score-who">${owner.name} &nbsp;·&nbsp; ${owner.biz}</div>
@@ -651,10 +719,8 @@ _Shikhar Peak');
       </div>
       <div class="gauge-track"><div class="gauge-fill" id="gaugeFill" style="width:0%"></div></div>
       <div class="gauge-labels">
-        <span>Firefighting (0–20)</span>
-        <span>Growing (21–30)</span>
-        <span>Structured (31–40)</span>
-        <span>Auto-Mode (41+)</span>
+        <span>Firefighting (0–20)</span><span>Growing (21–30)</span>
+        <span>Structured (31–40)</span><span>Auto-Mode (41+)</span>
       </div>
     </div>
 
@@ -667,7 +733,7 @@ _Shikhar Peak');
 
     <div class="dim-section">
       <div class="section-label">क्षेत्र के अनुसार स्कोर / Score by Area</div>
-      ${qScores.map(d=>`
+      ${qScores.map(d => `
         <div class="dim-row">
           <div class="dim-name-wrap">
             <div class="dim-name-hi">${d.dimhi}</div>
@@ -681,11 +747,11 @@ _Shikhar Peak');
     <div class="insight-row">
       <div class="insight-box i-str">
         <h4>✓ आपकी ताकत / Strengths</h4>
-        <ul>${str.length?str.map(s=>`<li>${s.dimhi} — ${s.dim} (${s.score}/5)</li>`).join(''):'<li>सभी क्षेत्रों में निरंतर सुधार करते रहें।</li>'}</ul>
+        <ul>${str.length ? str.map(s=>`<li>${s.dimhi} — ${s.dim} (${s.score}/5)</li>`).join('') : '<li>सभी क्षेत्रों में निरंतर सुधार करते रहें।</li>'}</ul>
       </div>
       <div class="insight-box i-gap">
         <h4>→ प्राथमिक कमियाँ / Priority Gaps</h4>
-        <ul>${gaps.length?gaps.map(g=>`<li>${g.dimhi} — ${g.dim} (${g.score}/5)</li>`).join(''):'<li>सभी क्षेत्रों में अच्छा प्रदर्शन।</li>'}</ul>
+        <ul>${gaps.length ? gaps.map(g=>`<li>${g.dimhi} — ${g.dim} (${g.score}/5)</li>`).join('') : '<li>सभी क्षेत्रों में अच्छा प्रदर्शन।</li>'}</ul>
       </div>
     </div>
 
@@ -694,22 +760,20 @@ _Shikhar Peak');
       <p style="color:#555">${band.next}</p>
     </div>
 
-    <!-- STEP 1: CHECKBOXES — with bilingual description -->
+    <!-- STEP 1: Interests -->
     <div class="interest-card">
       <span style="display:block;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);margin-bottom:2px;">आपको सबसे ज़्यादा क्या मदद करेगा?</span>
       <span style="display:block;font-size:13px;color:var(--muted);margin-bottom:16px;">What would help you most right now?</span>
-
       <div class="interest-desc">
-        <div class="interest-desc-hi">नीचे दिए गए विकल्पों में से जो भी आपके बिज़नेस पर लागू हो, उसे चुनें। आप एक से अधिक विकल्प भी चुन सकते हैं।</div>
-        <div class="interest-desc-en">Select all options that apply to your business. You may choose more than one — we will include your preferences with your personalised report.</div>
+        <div class="interest-desc-hi">नीचे दिए गए विकल्पों में से जो भी आपके बिज़नेस पर लागू हो, उसे चुनें।</div>
+        <div class="interest-desc-en">Select all that apply — we will share your preferences when we contact you.</div>
       </div>
-
       <div class="check-list">
         <div class="check-item" id="ci-report" onclick="toggleInterest('assessment_report','ci-report')">
           <div class="check-box"><span class="check-tick">✓</span></div>
           <div>
             <div class="check-hi">📊 पूरी असेसमेंट रिपोर्ट चाहिए</div>
-            <div class="check-en">Get My Full Assessment Report — detailed PDF with scores, insights &amp; recommendations sent to WhatsApp.</div>
+            <div class="check-en">Get My Full Assessment Report — detailed PDF with scores, insights &amp; recommendations.</div>
           </div>
         </div>
         <div class="check-item" id="ci-roadmap" onclick="toggleInterest('improvement_roadmap','ci-roadmap')">
@@ -729,201 +793,104 @@ _Shikhar Peak');
       </div>
     </div>
 
+    <!-- STEP 2: Contact us -->
     <div class="wa-action-card">
-      <div class="wa-action-title-hi">अपनी रिपोर्ट <em>WhatsApp</em> पर भेजें</div>
-      <div class="wa-action-title-en">Send your report to WhatsApp</div>
-      <div class="wa-action-desc-hi">नीचे बटन दबाएँ — WhatsApp खुलेगा और पूरी रिपोर्ट पहले से भरी होगी। बस Send दबाएँ।</div>
-      <div class="wa-action-desc-en">Tap below — WhatsApp opens with your full report pre-filled. Just tap Send.</div>
-      <div class="wa-prefilled">📱 भेजा जाएगा / Sending to: <strong>${owner.wa}</strong></div>
-      <div id="sheetSaveInd" style="display:none;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.25);padding:9px 13px;color:var(--wa);font-size:12px;align-items:center;gap:7px;margin-bottom:12px;">
-        ✅ डेटा Google Sheet में सेव हो गया। / Data saved to Google Sheet.
+      <div class="wa-action-title-hi">पूरी रिपोर्ट के लिए <em>हमसे संपर्क करें</em></div>
+      <div class="wa-action-title-en">Contact us on WhatsApp for your full report</div>
+      <div class="wa-action-desc-hi">नीचे बटन दबाएँ — हमारी Shikhar टीम आपसे सीधे WhatsApp पर जुड़ेगी और आपकी पूरी रिपोर्ट, रोडमैप और अगला कदम साझा करेगी।</div>
+      <div class="wa-action-desc-en">Tap below to message our team on WhatsApp. We will personally send your full report, improvement roadmap, and guide you on the next step.</div>
+
+      <div class="wa-what-you-get">
+        <div class="wa-what-you-get-title">आपको मिलेगा / What you will receive</div>
+        <ul>
+          <li>पूरी असेसमेंट रिपोर्ट PDF — सभी स्कोर, इनसाइट्स और सुझाव</li>
+          <li>आपके बिज़नेस के लिए प्राथमिकता सुधार रोडमैप</li>
+          <li>Shikhar एक्सपर्ट से व्यक्तिगत मार्गदर्शन</li>
+        </ul>
       </div>
-      <div id="pdfLinkBox" class="pdf-link-box">
-        📄 <strong>PDF Report:</strong> <a id="pdfHref" href="#" target="_blank">PDF खोलें / Open PDF</a>
+
+      <!-- Sheet save indicator -->
+      <div id="sheetSaveInd" class="status-inline busy" style="display:flex; margin-bottom:16px;">
+        <span>⏳</span><span>Sheet में सेव हो रहा है… / Saving to sheet…</span>
       </div>
-      <div class="wa-btns" style="margin-top:14px;">
-        <button class="btn-wa" onclick="sendWAClient()">
+
+      <div class="wa-btns">
+        <button class="btn-wa" onclick="contactAdmin()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp पर रिपोर्ट भेजें / Send Report
+          Shikhar टीम से बात करें / Talk to Shikhar Team
         </button>
-        <button class="btn-wa-outline" onclick="copyReport()">📋 कॉपी करें / Copy</button>
         <button class="btn-reset" onclick="resetAll()">फिर से शुरू / Start Over</button>
       </div>
-      <div class="wa-confirm" id="waConfirm">✓ WhatsApp खुल गया — Send दबाएँ। Admin को भी सूचना भेजी जा रही है…</div>
-    </div>
-
-    <div class="report-box">
-      <div class="section-label" style="margin-bottom:12px;">पूरी रिपोर्ट / Full Report Preview</div>
-      <div class="report-pre" id="reportPre"></div>
-      <button class="btn-copy" onclick="copyReport()">रिपोर्ट कॉपी करें / Copy Report</button>
+      <div class="wa-confirm" id="waConfirm">✓ WhatsApp खुल गया — हमारी टीम जल्द आपसे संपर्क करेगी। / Our team will be in touch shortly.</div>
     </div>`;
-
-  const rpt=makeReport(total,band,qScores,str,gaps,today,'');
-  document.getElementById('reportPre').textContent=rpt;
-
-  showScreen('result');
-  updateProg();
-
-  let n=0;const t=setInterval(()=>{n=Math.min(n+1,total);document.getElementById('animScore').textContent=n;if(n>=total)clearInterval(t);},60);
-  setTimeout(()=>document.getElementById('gaugeFill').style.width=pct+'%',200);
 }
 
-function toggleInterest(key,elId){
-  interests[key]=!interests[key];
-  document.getElementById(elId).classList.toggle('checked',interests[key]);
+// ── Interests ──
+function toggleInterest(key, elId) {
+  interests[key] = !interests[key];
+  document.getElementById(elId).classList.toggle('checked', interests[key]);
 }
-function getInterestStr(){
+function getInterestStr() {
   return [
-    interests.assessment_report?'Assessment Report':null,
-    interests.improvement_roadmap?'Improvement Roadmap':null,
-    interests.consulting?'Consulting/Coaching':null
-  ].filter(Boolean).join(', ')||'None';
+    interests.assessment_report   ? 'Assessment Report'   : null,
+    interests.improvement_roadmap ? 'Improvement Roadmap' : null,
+    interests.consulting           ? 'Consulting/Coaching' : null
+  ].filter(Boolean).join(', ') || 'None selected';
 }
 
-function makeReport(total,band,qScores,str,gaps,date,pdfLink){
-  const bar=s=>'█'.repeat(s)+'░'.repeat(5-s);
-  const intLines=[
-    interests.assessment_report ?'  ✅ पूरी असेसमेंट रिपोर्ट / Full Assessment Report':'  ☐ Full Assessment Report',
-    interests.improvement_roadmap?'  ✅ सुधार रोडमैप / Improvement Roadmap':            '  ☐ Improvement Roadmap',
-    interests.consulting         ?'  ✅ बिज़नेस कोचिंग / Business Consulting':           '  ☐ Business Consulting'
-  ].join('\n');
+// ── Contact admin on WhatsApp ──
+function contactAdmin() {
+  const total  = answers.reduce((s, a) => s + a, 0);
+  const band   = BANDS.find(b => total >= b.min && total <= b.max) || BANDS[0];
+  const intStr = getInterestStr();
 
-  return `*SHIKHAR — बिज़नेस बॉटलनेक रिपोर्ट*
-*Business Bottleneck Report*
-━━━━━━━━━━━━━━━━━━━━━━━
+  const msg =
+`नमस्ते Shikhar Team! 🙏
 
-📋 *दिनांक / Date:* ${date}
-👤 *नाम / Name:* ${owner.name}
-🏭 *बिज़नेस / Business:* ${owner.biz}
-🏢 *उद्योग / Industry:* ${owner.indus}
-💰 *टर्नओवर / Turnover:* ${owner.rev}
-📱 *WhatsApp:* ${owner.wa}
+मैंने Business Bottleneck Assessment पूरी की।
 
-━━━━━━━━━━━━━━━━━━━━━━━
-📊 *कुल स्कोर / OVERALL SCORE: ${total} / 50*
-━━━━━━━━━━━━━━━━━━━━━━━
-परिणाम / Result: *${band.labelhi} — ${band.label}*
+👤 नाम: ${owner.name}
+🏭 बिज़नेस: ${owner.biz}
+🏢 उद्योग: ${owner.indus}
+💰 टर्नओवर: ${owner.rev}
+📱 WhatsApp: ${owner.wa}
 
-${band.headlinehi}
-${band.headlineen}
+📊 स्कोर: ${total}/50 — ${band.labelhi} (${band.label})
 
-━━━━━━━━━━━━━━━━━━━━━━━
-📈 *क्षेत्र के अनुसार स्कोर / SCORE BY AREA*
-━━━━━━━━━━━━━━━━━━━━━━━
-${qScores.map(d=>`${bar(d.score)} ${d.dimhi} (${d.dim}): ${d.score}/5`).join('\n')}
+📌 मुझे चाहिए: ${intStr}
 
-━━━━━━━━━━━━━━━━━━━━━━━
-✅ *आपकी ताकत / YOUR STRENGTHS*
-━━━━━━━━━━━━━━━━━━━━━━━
-${str.length?str.map(s=>`• ${s.dimhi} — ${s.dim} (${s.score}/5)`).join('\n'):'• सभी क्षेत्रों में निरंतर सुधार करते रहें।'}
+कृपया मुझे पूरी रिपोर्ट और अगला कदम बताएँ।
+Please share my full report and next steps.`;
 
-━━━━━━━━━━━━━━━━━━━━━━━
-⚠️ *प्राथमिक कमियाँ / PRIORITY GAPS*
-━━━━━━━━━━━━━━━━━━━━━━━
-${gaps.length?gaps.map(g=>`• ${g.dimhi} — ${g.dim} (${g.score}/5) — ध्यान देना ज़रूरी`).join('\n'):'• सभी क्षेत्रों में अच्छा प्रदर्शन।'}
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🎯 *इसका क्या अर्थ है / WHAT THIS MEANS*
-━━━━━━━━━━━━━━━━━━━━━━━
-${band.deschi}
-${band.descen}
-
-━━━━━━━━━━━━━━━━━━━━━━━
-📌 *मुझे चाहिए / I'M INTERESTED IN*
-━━━━━━━━━━━━━━━━━━━━━━━
-${intLines}
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🚀 *अगला कदम / NEXT STEP*
-━━━━━━━━━━━━━━━━━━━━━━━
-${band.next}
-${pdfLink?'\n📄 *PDF Report:* '+pdfLink:''}
-
-_Shikhar Peak Performance Coaching_
-_"Only a Happy Entrepreneur is truly Successful."_
-_"केवल एक खुश उद्यमी ही सही मायनों में सफल है।"_`;
-}
-
-function sendWAClient(){
-  const total=answers.reduce((s,a)=>s+a,0);
-  const band=BANDS.find(b=>total>=b.min&&total<=b.max)||BANDS[0];
-  const qScores=QS.map((q,i)=>({dimhi:q.dimhi,dim:q.dim,score:answers[i],pct:(answers[i]/5)*100}));
-  const str=[...qScores].sort((a,b)=>b.score-a.score).slice(0,3);
-  const gaps=[...qScores].filter(d=>d.score<=2).sort((a,b)=>a.score-b.score).slice(0,3);
-  const today=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
-  const intStr=getInterestStr();
-  const rpt=makeReport(total,band,qScores,str,gaps,today,savedPdfLink);
-
+  // Save CONTACT_REQUESTED event to sheet with interests
   sendToSheet({
-    event:'REPORT_SENT',timestamp:new Date().toISOString(),
-    name:owner.name,business:owner.biz,industry:owner.indus,
-    turnover:owner.rev,whatsapp:owner.wa,
-    score:total+'/'+MAX_SCORE,result:band.label,completed:'Yes',
-    q1_strategy:answers[0],q2_systems:answers[1],q3_people:answers[2],
-    q4_discipline:answers[3],q5_finance:answers[4],q6_operations:answers[5],
-    q7_processes:answers[6],q8_leadership:answers[7],q9_profit:answers[8],
-    q10_growth:answers[9],
-    top_strengths:str.map(s=>s.dim).join(', '),
-    top_gaps:gaps.map(g=>g.dim).join(', '),
-    interests_selected:intStr
+    event: 'CONTACT_REQUESTED', timestamp: new Date().toISOString(),
+    name: owner.name, business: owner.biz, industry: owner.indus,
+    turnover: owner.rev, whatsapp: owner.wa,
+    score: total + '/' + MAX_SCORE, result: band.label, completed: 'Yes',
+    q1_strategy: answers[0], q2_systems: answers[1], q3_people: answers[2],
+    q4_discipline: answers[3], q5_finance: answers[4], q6_operations: answers[5],
+    q7_processes: answers[6], q8_leadership: answers[7], q9_profit: answers[8],
+    q10_growth: answers[9],
+    top_strengths: [...QS.map((q,i)=>({dim:q.dim,score:answers[i]}))].sort((a,b)=>b.score-a.score).slice(0,3).map(s=>s.dim).join(', '),
+    top_gaps:      [...QS.map((q,i)=>({dim:q.dim,score:answers[i]}))].filter(d=>d.score<=2).sort((a,b)=>a.score-b.score).slice(0,3).map(g=>g.dim).join(', '),
+    interests_selected: intStr
   });
 
-  const clientNum=owner.wa.replace('+','');
-  window.open(`https://wa.me/${clientNum}?text=${encodeURIComponent(rpt)}`,'_blank');
+  window.open(`https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(msg)}`, '_blank');
 
-  setTimeout(()=>{
-    const adminMsg=buildAdminMsg(total,band,intStr);
-    window.open(`https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(adminMsg)}`,'_blank');
-  },1400);
-
-  const el=document.getElementById('waConfirm');
-  el.style.display='flex';
-  el.innerHTML='✓ WhatsApp खुल गया — Send दबाएँ। Admin notification भी भेजी जा रही है…';
-  setTimeout(()=>el.style.display='none',9000);
+  const el = document.getElementById('waConfirm');
+  el.style.display = 'flex';
+  setTimeout(() => el.style.display = 'none', 9000);
 }
 
-function buildAdminMsg(total,band,intStr){
-  return `🔔 *नई Shikhar Assessment पूरी हुई!*
-*NEW ASSESSMENT COMPLETED*
-━━━━━━━━━━━━━━━━━━━━━━━
-
-👤 *नाम:* ${owner.name}
-🏭 *बिज़नेस:* ${owner.biz}
-🏢 *उद्योग:* ${owner.indus}
-💰 *टर्नओवर:* ${owner.rev}
-📱 *WhatsApp:* ${owner.wa}
-
-━━━━━━━━━━━━━━━━━━━━━━━
-📊 *Score: ${answers.reduce((s,a)=>s+a,0)} / 50 — ${band.labelhi}*
-${band.label}
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔢 *Individual Scores:*
-${QS.map((q,i)=>`• ${q.dimhi} (${q.dim}): ${answers[i]}/5`).join('\n')}
-
-━━━━━━━━━━━━━━━━━━━━━━━
-📌 *Client interested in:*
-${intStr}
-${savedPdfLink?'\n📄 PDF: '+savedPdfLink:''}
-
-⏰ ${new Date().toLocaleString('en-IN')}
-_Shikhar Assessment System_`;
-}
-
-function copyReport(){
-  const txt=document.getElementById('reportPre').textContent;
-  navigator.clipboard?.writeText(txt).then(()=>alert('कॉपी हो गया! / Copied! Paste into WhatsApp.')).catch(()=>{
-    const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
-    alert('कॉपी हो गया! / Copied!');
-  });
-}
-
-function resetAll(){
-  answers=new Array(QS.length).fill(null);
-  interests={assessment_report:false,improvement_roadmap:false,consulting:false};
-  savedPdfLink='';currentQ=0;
-  document.getElementById('progFill').style.width='0%';
-  document.getElementById('progTxt').textContent='0 / '+QS.length;
+// ── Reset ──
+function resetAll() {
+  answers   = new Array(QS.length).fill(null);
+  interests = { assessment_report:false, improvement_roadmap:false, consulting:false };
+  currentQ  = 0;
+  document.getElementById('progFill').style.width = '0%';
+  document.getElementById('progTxt').textContent  = '0 / ' + QS.length;
   showScreen('intro');
   testSheetConnection();
 }
